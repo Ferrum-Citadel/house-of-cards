@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "dircreator"
+version = "0.2.0"
+description = "A robust CLI tool to create directory structures from tree-like input."
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.6,<3.13"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+
+[tool.poetry.scripts]
+dircreator = "dircreator.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

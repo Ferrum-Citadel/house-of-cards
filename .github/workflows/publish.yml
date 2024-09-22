@@ -1,0 +1,44 @@
+name: Publish to PyPI
+
+on:
+    push:
+      tags:
+        - '*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+  pypi-publish:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10" 
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+         poetry-version: '1.8.3'
+
+      - name: Configure Poetry to not create virtual environments
+        run: |
+          poetry config virtualenvs.create false
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction
+
+      - name: Package project
+        run: poetry build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

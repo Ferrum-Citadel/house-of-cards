@@ -1,3 +1,4 @@
+![build](https://github.com/Ferrum-Citadel/house-of-cards/actions/workflows/python-test.yml/badge.svg)
 # House-of-Cards (hoc)
 
 A command-line tool to create real file structures on your system from tree-like representations. Easily replicate directory and file structures from your favorite articles, tutorials, LLM answers, or even from `tree -F` outputs from other users! Just copy the tree  structure to your clipboard and you're ready to recreate it on your system.

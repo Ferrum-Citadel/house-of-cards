@@ -2,7 +2,7 @@
 name = "house-of-cards"
 version = "1.0.1"
 description = "A robust CLI tool to create directory structures from tree-like input."
-authors = ["Petros Sidirokastritis sidirope@gmail.com"]
+authors = ["Petros Sidirokastritis <sidirope@gmail.com>"]
 license = "GPL-3.0"
 readme = "README.md"
 packages = [

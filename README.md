@@ -5,7 +5,17 @@ A command-line tool to create real file structures on your system from tree-like
 
 ## Features
 
-- Parses tree-like representations of file structures to create directories and files.
+- Parses tree-like representations of file structures like:
+```sh
+./
+├── src/
+│   ├── main.py
+│   └── utils.py
+├── tests/
+│   └── test_main.py
+└── README.md
+```
+and creates them in your system.
 - Handles directories with or without trailing slashes.
 - Compatible with the output of the `tree -F` command.
 - Can Automatically set appropriate permissions for directories and files.
@@ -15,26 +25,26 @@ A command-line tool to create real file structures on your system from tree-like
 Install `hoc` from PyPI using `pip`:
 
 ```sh
-pip install hoc
+pip install house-of-cards
 ```
 or run it using pipx:
 ```sh
-pipx run hoc
+pipx run house-of-cards
 ```
 
 or even single runs  with uvx:
 ```sh
-uvx hoc
+uvx house-of-cards
 ```
 
 ## Usage
 
-hoc can be used directly from the command line. It reads a tree-like structure from the clipboard or a file and creates the corresponding directory and file structure at the specified base path.
+`hoc` can be used directly from the command line. It reads the file structure string from the clipboard or a file and creates the corresponding directory and file structure at the specified base path.
 
 ```sh
 hoc <base_path> [options]
 ```
-- <base_path>: The base directory where the structure will be created.
+- <base_path>: The base directory where the structure will be created. (current directory if not provided)
 - [Options]: Optional arguments to customize the behavior of the command.  
 
 > [!NOTE]  
@@ -127,6 +137,8 @@ hoc /relative/base/path -dp 755 -fp 644
 You can use hoc to clone file structures to a remote server by copying the structure using:
 ```sh
 tree -F /path/to/directory | pbcopy
+or
+tree -F /path/to/directory | xclip -selection clipboard
 ```
 and either share the clipboard content with the other user or save it to a file and send it to them. They can then run hoc on their system to create the same structure or run it on the remote server to create the structure there.
 

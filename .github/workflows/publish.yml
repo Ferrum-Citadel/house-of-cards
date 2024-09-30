@@ -35,7 +35,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction
+          poetry install --no-interaction --no-dev
 
       - name: Package project
         run: poetry build
